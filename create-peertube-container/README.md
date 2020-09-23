@@ -31,7 +31,9 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
 * In der Pluginliste sucht man das auth-ldap-Plugin und installiert es.
 ![LDAP-Plugin installieren](auth-ldap-installieren.png)
 * Unter _Administration -> Plugins/Designs -> Installiert_ öffnet man die Einstellungen des Plugins.
+![LDAP-Plugin Einstellungen](auth-ldap-einrichten1.png)
 * Das Formular ist mit den entsprechenden Werten auszufüllen:  
+![LDAP-Plugin Formular](auth-ldap-einrichten2.png)  
   Bezeichnung       | Wert
   ------------------|-----------------------------------------------------------------------
   URL               | ``ldaps://server.example.org``
