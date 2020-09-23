@@ -32,8 +32,10 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
   ![Peertube Plugins](auth-ldap-installieren.png)
 * Unter _Administration -> Plugins/Designs -> Installiert_ öffnet man die Einstellungen des Plugins.
   ![Peertube Plugins](auth-ldap-einrichten1.png)
-* Das Formular ist mit den entsprechenden Werten auszufüllen:
+* Das Formular ist mit den entsprechenden Werten auszufüllen:  
   ![Peertube Plugins](auth-ldap-einrichten2.png)
+  Bezeichnung       | Wert
+  ------------------------------------------------------------------------------------------
   URL               | ``ldaps://server.example.org``
   Bind DN           | ``CN=global-binduser,OU=Management,OU=GLOBAL,DC=example,DC=org``
   Bind Password     | (siehe auf dem Server in ``/etc/linuxmuster/.secret/global-binduser``)
