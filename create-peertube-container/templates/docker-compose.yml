@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+
+  peertube:
+    image: chocobozzz/peertube:production-buster
+    container_name: peertube
+    env_file:
+      - .env
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./data:/data
+      - ./config:/config
+    depends_on:
+      - postgres
+      - redis
+    restart: "always"
+
+  postgres:
+    image: postgres:10-alpine
+    container_name: peertube-postgres
+    env_file:
+      - .env
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    restart: "always"
+
+  redis:
+    image: redis:4-alpine
+    container_name: peertube-redis
+    volumes:
+      - ./redis:/data
+    restart: "always"
