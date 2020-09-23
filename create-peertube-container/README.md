@@ -16,14 +16,14 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
 * Repo klonen: ``git clone https://github.com/linuxmuster/linuxmuster-docker.git``
 * Ins Verzeichnis wechseln: ``cd linuxmuster-docker/create-peertube-container``
 * hosts-Datei kopieren: ``cp hosts.ex hosts``
-* in hosts-Datei IP-Adresse oder FQDN des Remotehosts eintragen.
+* in hosts-Datei IP-Adresse oder FQDN des Dockerhosts eintragen.
 * Playbook-Datei kopieren: ``cp peertube.yml.ex peertube.yml``
 * Playbook anpassen (siehe Zeilen mit "### anpassen"):
   - remote_user: Name des Remote-Users auf dem Dockerhost,
   - rootpw: Initiales Root-Passwort der Peertube-Instanz und
   - hostname: FQDN der Peertube-Instanz
 * Falls eigener Mailserver zur Verfügung steht in ``templates/env`` die Mailrelay-Einträge anpassen.
-* Dockerhost ausrollen: ``ansible-playbook -i hosts -K peertube.yml``
+* Dockerhost ausrollen: ``ansible-playbook -i hosts -K peertube.yml``  
   Sudo-Passwort des Users wird abgefragt.
 * Danach kann man sich als ``root`` per https auf der unter ``hostname`` angegebenen Adresse anmelden.
 * Unter _Administration -> Plugins/Designs -> Search_ lässt man sich die installierbaren Plugins auflisten.  
