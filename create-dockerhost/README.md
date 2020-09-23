@@ -35,8 +35,8 @@ basiert auf https://github.com/linuxmuster-ext-docker/create-docker-host.git von
 ## Anmerkungen:
 
 * Es gibt zwei Beispiel-Playbooks:
-- `dockerhost.yml.ex`
-  Vollständiges Playbook mit Einrichtung von LE-Hostzertifikat über dehydrated. Gültiger DNS-Name des Hosts ist Voraussetzung.
+  - `dockerhost.yml.ex`
+    Vollständiges Playbook mit Einrichtung von LE-Hostzertifikat über dehydrated. Gültiger DNS-Name des Hosts ist Voraussetzung.
   - `dockerhost-test.yml.ex`  
     Für den lokalen Testbetrieb, es wird kein LE-Zertifikat eingerichtet, im Internet gültiger FQDN ist nicht notwendig. In die Datei `hosts` kann eine private IP-Adresse eingetragen werden.
 
