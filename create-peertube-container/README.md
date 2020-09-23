@@ -27,9 +27,9 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
   Sudo-Passwort des Users wird abgefragt.
 * Danach kann man sich als ``root`` per https auf der unter ``hostname`` angegebenen Adresse anmelden.
 * Unter _Administration -> Plugins/Designs -> Search_ lässt man sich die installierbaren Plugins auflisten.  
-![PeerTube Plugins](/images/2020/09/pt-plugins.png)
+![PeerTube Plugins](pt-plugins.png)
 * In der Pluginliste sucht man das auth-ldap-Plugin und installiert es.
-![LDAP-Plugin installieren](/images/2020/09/auth-ldap-installieren.png)
+![LDAP-Plugin installieren](auth-ldap-installieren.png)
 * Unter _Administration -> Plugins/Designs -> Installiert_ öffnet man die Einstellungen des Plugins.
 * Das Formular ist mit den entsprechenden Werten auszufüllen:  
   Bezeichnung       | Wert
