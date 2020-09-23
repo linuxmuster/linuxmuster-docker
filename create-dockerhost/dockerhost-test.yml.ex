@@ -1,8 +1,9 @@
+# Beispiel-Playbook ohne LE-Zertifikat
 - hosts: all
   name: Konfiguriere Dockerhost mit Ansible
   gather_facts: yes
   become: yes
-  ### anpassen
+  ### anpassen: Name des Remote-Users auf dem Dockerhost
   remote_user: linuxmuster
   vars:
 
@@ -23,8 +24,8 @@
     ssh_port: '22'
     http_port: '80'
     https_port: '443'
-    ### anpassen
-    hostname: 'dockerhost'
+    ### anpassen: Name des Dockerhosts
+    hostname: 'mein.docker.host'
 
   tasks:
     - name: get lsb_release
@@ -56,11 +57,11 @@
 
     - name: Set authorized key taken from file
       authorized_key:
-        ### anpassen
+        ### anpassen: Name des SSH-Users auf dem Dockerhost (i.d.R. identisch zu obigem remote_user)
         user: linuxmuster
         state: present
-        ### anpassen
-        key: "{{ lookup('file', '/home/thomas/.ssh/id_rsa.pub') }}"
+        ### anpassen: Pfad zum öffentlichen SSH-Key
+        key: "{{ lookup('file', '/home/user/.ssh/id_rsa.pub') }}"
 
     - name: Disallow ssh password authentication
       lineinfile: dest=/etc/ssh/sshd_config
@@ -102,6 +103,6 @@
 
   handlers:
     - name: Restart ssh
-      service: name=ssh state=restarted
-    - name: Restart nginx
-      service: name=nginx state=restarted
+      service:
+        name: ssh
+        state: restarted

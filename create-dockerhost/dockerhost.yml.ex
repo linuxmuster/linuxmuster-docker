@@ -1,8 +1,9 @@
+# Beispiel-Playbook mit LE-Zertifikats-Einrichtung
 - hosts: all
   name: Konfiguriere Dockerhost mit Ansible
   gather_facts: yes
   become: yes
-  ### anpassen
+  ### anpassen: Name des Remote-Users auf dem Dockerhost
   remote_user: linuxmuster
   vars:
 
@@ -23,7 +24,7 @@
     ssh_port: '22'
     http_port: '80'
     https_port: '443'
-    ### anpassen
+    ### anpassen: Name des Dockerhosts
     hostname: 'mein.docker.host'
 
   tasks:
@@ -56,11 +57,11 @@
 
     - name: Set authorized key taken from file
       authorized_key:
-        ### anpassen
+        ### anpassen: Name des SSH-Users auf dem Dockerhost (i.d.R. identisch zu obigem remote_user)
         user: linuxmuster
         state: present
-        ### anpassen
-        key: "{{ lookup('file', '/home/linuxmuster/.ssh/id_rsa.pub') }}"
+        ### anpassen: Pfad zum öffentlichen SSH-Key
+        key: "{{ lookup('file', '/home/user/.ssh/id_rsa.pub') }}"
 
     - name: Disallow ssh password authentication
       lineinfile: dest=/etc/ssh/sshd_config
@@ -75,9 +76,6 @@
                   line="PermitRootLogin without-password"
                   state=present
       notify: Restart ssh
-
-    - name: Set hostname to {{ hostname }}
-      command: /usr/bin/hostnamectl set-hostname {{ hostname }}
 
     - name: Create WellKnown directory for dehydrated challenges
       file:
@@ -94,10 +92,13 @@
                   state=present
       notify: Restart ssh
 
-    - name: Create domain.txt for dehydrated
+    - name: Set hostname to {{ hostname }}
+      command: /usr/bin/hostnamectl set-hostname {{ hostname }}
+
+    - name: Create domains.txt for dehydrated
       copy:
         content: "{{ hostname }}"
-        dest: /etc/dehydrated/domain.txt
+        dest: /etc/dehydrated/domains.txt
 
     - name: Insert .wellknown alias into nginx configuration
       blockinfile:
@@ -108,7 +109,11 @@
           location ^~ /.well-known/acme-challenge {
               alias /var/www/dehydrated;
           }
-      notify: Restart nginx
+
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted
 
     - name: Registering host with letsencrypt
       command: /usr/bin/dehydrated --register --accept-terms
@@ -142,6 +147,6 @@
 
   handlers:
     - name: Restart ssh
-      service: name=ssh state=restarted
-    - name: Restart nginx
-      service: name=nginx state=restarted
+      service:
+        name: ssh
+        state: restarted

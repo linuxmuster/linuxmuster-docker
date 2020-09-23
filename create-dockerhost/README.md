@@ -16,9 +16,10 @@ basiert auf https://github.com/linuxmuster-ext-docker/create-docker-host.git von
 * in hosts-Datei IP-Adresse oder FQDN des Remotehosts eintragen.
 * Playbook-Datei kopieren: ``cp dockerhost.yml.ex dockerhost.yml``
 * Playbook anpassen (siehe Zeilen mit "### anpassen"):
-  - remote_user mit Sudo-Rechten (Bsp. linuxmuster),
-  - Pfad zum ssh-Pubkey und
-  - Hostname.
+  - remote_user: Name des Remote-Users auf dem Dockerhost,
+  - hostname: Name des Dockerhosts,
+  - user: Name des SSH-Users auf dem Dockerhost (i.d.R. identisch zu obigem remote_user) und
+  - key: Pfad zum eigenen öffentlichen SSH-Key.
 * Dockerhost ausrollen: ``ansible-playbook -i hosts -k -K dockerhost.yml``
   Passwort des Users wird zweimal abgefragt (für SSH & Sudo).
 * Danach steht der Dockerhost mit passwortlosem SSH-Zugang zur Verfügung.
