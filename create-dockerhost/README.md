@@ -10,8 +10,8 @@ basiert auf https://github.com/linuxmuster-ext-docker/create-docker-host.git von
 
 ## Inbetriebnahme:
 
-* ``git clone https://github.com/linuxmuster/linuxmuster-docker/create-dockerhost.git``
-* ``cd create-dockerhost``
+* Repo klonen: ``git clone https://github.com/linuxmuster/linuxmuster-docker.git``
+* Ins Verzeichnis wechseln: ``cd linuxmuster-docker/create-dockerhost``
 * hosts-Datei kopieren: ``cp hosts.ex hosts``
 * in hosts-Datei IP-Adresse oder FQDN des Remotehosts eintragen.
 * Playbook-Datei kopieren: ``cp dockerhost.yml.ex dockerhost.yml``
@@ -22,7 +22,6 @@ basiert auf https://github.com/linuxmuster-ext-docker/create-docker-host.git von
 * Dockerhost ausrollen: ``ansible-playbook -i hosts -k -K dockerhost.yml``
   Passwort des Users wird zweimal abgefragt (für SSH & Sudo).
 * Danach steht der Dockerhost mit passwortlosem SSH-Zugang zur Verfügung.
-
 
 ## Installierte Pakete u.a.:
 
