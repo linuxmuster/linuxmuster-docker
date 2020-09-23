@@ -72,14 +72,14 @@
         path: /etc/nginx/sites-available/peertube
         regexp: '@@hostname@@'
         replace: "{{ hostname }}"
-        notify: Restart nginx
+      notify: Restart nginx
 
     - name: Enable nginx config
       file:
         src: /etc/nginx/sites-available/peertube
         dest: /etc/nginx/sites-enabled/peertube
         state: link
-        notify: Restart nginx
+      notify: Restart nginx
 
     - name: Add hostname to dehydrated domains.txt
       lineinfile:
