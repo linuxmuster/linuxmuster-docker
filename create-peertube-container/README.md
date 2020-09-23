@@ -35,7 +35,7 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
 * Das Formular ist mit den entsprechenden Werten auszufüllen:  
   ![Peertube Plugins](auth-ldap-einrichten2.png)
   Bezeichnung       | Wert
-  ------------------------------------------------------------------------------------------
+  ------------------|-----------------------------------------------------------------------
   URL               | ``ldaps://server.example.org``
   Bind DN           | ``CN=global-binduser,OU=Management,OU=GLOBAL,DC=example,DC=org``
   Bind Password     | (siehe auf dem Server in ``/etc/linuxmuster/.secret/global-binduser``)
