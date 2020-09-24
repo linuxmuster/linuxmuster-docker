@@ -7,6 +7,7 @@ basiert auf https://github.com/linuxmuster-ext-docker/create-docker-host.git von
 * Remotehost:
   - Ubuntu 18.04 oder 20.04
   - ssh-Zugang für Sudo-Benutzer
+* Firewall mit ldaps-Portweiterleitung (636)
 
 ## Inbetriebnahme:
 
