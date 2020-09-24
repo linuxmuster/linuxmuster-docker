@@ -141,6 +141,26 @@
         line: "PEERTUBE_ADMIN_EMAIL={{ admin_email }}"
         state: present
 
+    - name: Disable PEERTUBE_TRUST_PROXY
+      replace:
+        dest: /srv/docker/peertube/.env
+        regexp: "^PEERTUBE_TRUST_PROXY"
+        replace: "#PEERTUBE_TRUST_PROXY"
+
+    - name: Set PEERTUBE_WEBSERVER_PORT to {{ peertube_port }}
+      lineinfile:
+        dest: /srv/docker/peertube/.env
+        regexp: "^PEERTUBE_WEBSERVER_PORT"
+        line: "PEERTUBE_WEBSERVER_PORT={{ peertube_port }}"
+        state: present
+
+    - name: Set PEERTUBE_WEBSERVER_HTTPS to false
+      lineinfile:
+        dest: /srv/docker/peertube/.env
+        regexp: "^PEERTUBE_WEBSERVER_HTTPS"
+        line: "PEERTUBE_WEBSERVER_HTTPS=false"
+        state: present
+
     - name: Copy docker-compose file
       copy:
         src: templates/docker-compose.yml
