@@ -1,9 +1,9 @@
 PT_INITIAL_ROOT_PASSWORD=@@rootpw@@
 POSTGRES_USER=peertube
-POSTGRES_PASSWORD=peertube
+POSTGRES_PASSWORD=@@postgres_pw@@
 POSTGRES_DB=peertube
 PEERTUBE_DB_USERNAME=peertube
-PEERTUBE_DB_PASSWORD=peertube
+PEERTUBE_DB_PASSWORD=@@db_pw@@
 PEERTUBE_DB_HOSTNAME=postgres
 PEERTUBE_WEBSERVER_HOSTNAME=@@hostname@@
 PEERTUBE_WEBSERVER_PORT=443
@@ -13,16 +13,16 @@ PEERTUBE_WEBSERVER_HTTPS=true
 PEERTUBE_TRUST_PROXY=["127.0.0.1", "loopback", "172.18.0.0/16"]
 ### anpassen: Mailrelay
 # If you use a Custom SMTP server
-#PEERTUBE_SMTP_USERNAME=
-#PEERTUBE_SMTP_PASSWORD=
+PEERTUBE_SMTP_USERNAME=@@smtp_user@@
+PEERTUBE_SMTP_PASSWORD=@@smtp_pw@@
 # Default to Postfix service name "postfix" in docker-compose.yml
 # May be the hostname of your Custom SMTP server
-PEERTUBE_SMTP_HOSTNAME=postfix
-PEERTUBE_SMTP_PORT=25
-PEERTUBE_SMTP_FROM=noreply@example.org
-PEERTUBE_SMTP_TLS=false
-PEERTUBE_SMTP_DISABLE_STARTTLS=false
-PEERTUBE_ADMIN_EMAIL=ptadmin@example.org
+PEERTUBE_SMTP_HOSTNAME=@@smtp_host@@
+PEERTUBE_SMTP_PORT=@@smtp_port@@
+PEERTUBE_SMTP_FROM=@@smtp_from@@
+PEERTUBE_SMTP_TLS=@@smtp_tls@@
+PEERTUBE_SMTP_DISABLE_STARTTLS=@@smtp_disable_starttls@@
+PEERTUBE_ADMIN_EMAIL=@@admin_email@@
 #POSTFIX_myhostname=${PEERTUBE_WEBSERVER_HOSTNAME}
 # /!\ Prefer to use the PeerTube admin interface to set the following configurations /!\
 #PEERTUBE_SIGNUP_ENABLED=true

@@ -22,7 +22,7 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
   - remote_user: Name des Remote-Users auf dem Dockerhost,
   - rootpw: Initiales Root-Passwort der Peertube-Instanz und
   - hostname: FQDN der Peertube-Instanz
-* Falls eigener Mailserver zur Verfügung steht in ``templates/env`` die Mailrelay-Einträge anpassen.
+* Anpassen der Mailrelay-Daten optional, nur wenn eigener Mailrelay verfügbar ist (kann auch noch nachträglich in .env-Datei gemacht werden).
 * Dockerhost ausrollen: ``ansible-playbook -i hosts -K peertube.yml``  
   Sudo-Passwort des Users wird abgefragt.
 * Danach kann man sich als ``root`` per https auf der unter ``hostname`` angegebenen Adresse anmelden.
