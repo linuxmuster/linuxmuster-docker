@@ -43,3 +43,7 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
   Search filter     | ``(\|(mail={{username}})(sAMAccountName={{username}}))``
   mail              | ``mail``
   Username property | ``sAMAccountName``
+
+## Anmerkungen
+
+Es gibt eine Beispieldatei ``peertube-test.yml.ex``, die zum Testen benutzt werden kann. Damit wird kein LE-Zertifikat für die PeerTube-Instanz eingerichtet. Bitte beachten, dass für den unverschlüsselten Zugriff die Firewall auf Port 9000 geöffnet wird.
