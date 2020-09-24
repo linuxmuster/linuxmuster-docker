@@ -6,9 +6,10 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
 ## Voraussetzung:
 
 * Lokal: ansible + git installiert
-* Remotehost:
+* Dockerhost:
   - Ubuntu 18.04 oder 20.04
   - Installierte Pakete: docker.io, docker-compose, nginx, dehydrated
+  - nginx & dehydrated konfiguriert mit LE-Zertifikat für Dockerhost
   - passwortloser ssh-Zugang für Sudo-Benutzer
 
 ## Inbetriebnahme:
