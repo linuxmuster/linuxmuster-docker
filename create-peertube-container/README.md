@@ -47,4 +47,7 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
 
 ## Anmerkungen
 
-Es gibt eine Beispieldatei ``peertube-test.yml.ex``, die zum Testen benutzt werden kann. Damit wird kein LE-Zertifikat für die PeerTube-Instanz eingerichtet. Bitte beachten, dass für den unverschlüsselten Zugriff die Firewall auf Port 9000 geöffnet wird.
+* Es gibt eine Beispieldatei ``peertube-test.yml.ex``, die zum Testen benutzt werden kann. Damit wird kein LE-Zertifikat für die PeerTube-Instanz eingerichtet. Bitte beachten, dass für den unverschlüsselten Zugriff die Firewall auf Port 9000 geöffnet wird.
+* Konfiguration und Daten werden persistent in den Volumes ``./config`` und ``./data`` abgelegt. Die hochgeladenden Videos finden sich z.Bsp. ``./data/videos``.
+* Die Datenbanken legen ihre Dateien in den Volumes ``db`` und ``redis`` persistent ab.
+* Um die komplette Instanz zu sichern, bezieht man einfach das Verzeichnis ``/srv/docker/peertube`` in seine Backupkonfiguration ein.
