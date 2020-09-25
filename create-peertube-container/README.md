@@ -41,9 +41,9 @@ Basiert auf https://github.com/Chocobozzz/PeerTube.
   Bind DN           | ``CN=global-binduser,OU=Management,OU=GLOBAL,DC=example,DC=org``
   Bind Password     | (siehe auf dem Server in ``/etc/linuxmuster/.secret/global-binduser``)
   Search base       | ``OU=teachers,OU=default-school,OU=SCHOOLS,DC=example,DC=org``
-  Search filter     | ``(\|(mail={{username}})(sAMAccountName={{username}}))``
+  Search filter     | ``((sAMAccountName={{username}})``
   mail              | ``mail``
-  Username property | ``sAMAccountName``
+  Username property | ``sAMAccountName`
 
 ## Anmerkungen
 
